@@ -197,7 +197,7 @@ def generate_financial_recommendation(user_id, behavior_row=None, financial_row=
     total_expenses = sum(current_expenses.values())
 
     # If income column exists, use it; else estimate from total expenses
-    total_income = user_exp.get("Income (USD)", pd.Series([total_expenses])).iloc[0]
+    total_income = float(user_exp.get("Income (USD)", pd.Series([total_expenses])).iloc[0])
 
     recommended_expenses = current_expenses.copy()
 
