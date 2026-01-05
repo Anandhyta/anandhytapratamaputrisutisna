@@ -56,6 +56,8 @@ class FinancialInsight(BaseModel):
 
 class UserInsightResponse(BaseModel):
     user_id: int
+    income: float  # Monthly income from dataset
+    total_expenses: float  # Sum of all expenses
     current_expenses: Dict[str, float]
     behavior_insight: BehaviorInsight
     financial_insight: FinancialInsight
@@ -148,9 +150,15 @@ async def get_user_financial_insight(user_id: int):
                 "change_amount": round(recommended - current, 2)
             }
         
+        # Get income and total_expenses from recommendation data
+        income = recommendation.get("income", sum(current_expenses.values()))
+        total_expenses = recommendation.get("total_expenses", sum(current_expenses.values()))
+        
         # Build response
         response = UserInsightResponse(
             user_id=user_id,
+            income=float(income),
+            total_expenses=float(total_expenses),
             current_expenses=current_expenses,
             behavior_insight=BehaviorInsight(
                 behavior_type=behavior_insight.get("behavior_type", "Unknown"),

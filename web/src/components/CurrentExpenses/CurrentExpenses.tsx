@@ -37,6 +37,12 @@ interface CurrentExpensesProps {
 
 const CurrentExpenses: React.FC<CurrentExpensesProps> = ({ expenses, income }) => {
   const totalExpenses = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+  
+  // Calculate overspending
+  const isOverspending = totalExpenses > income;
+  const overspendingAmount = totalExpenses - income;
+  const overspendingPercentage = income > 0 ? ((overspendingAmount / income) * 100) : 0;
+  const savingsPercentage = income > 0 ? (((income - totalExpenses) / income) * 100) : 0;
 
   const isHighDiscretionary = (category: string, amount: number): boolean => {
     if (!discretionaryCategories.includes(category)) return false;
@@ -60,6 +66,23 @@ const CurrentExpenses: React.FC<CurrentExpensesProps> = ({ expenses, income }) =
           <div className="summary-details">
             <span className="summary-label">Total Expenses</span>
             <span className="summary-value expenses-value">${totalExpenses.toLocaleString()}</span>
+          </div>
+        </div>
+        {/* Overspending / Savings Indicator */}
+        <div className={`summary-card spending-status-card ${isOverspending ? 'overspending' : 'under-budget'}`}>
+          <span className="summary-icon">{isOverspending ? '⚠️' : '✅'}</span>
+          <div className="summary-details">
+            <span className="summary-label">{isOverspending ? 'Overspending' : 'Under Budget'}</span>
+            <span className={`summary-value ${isOverspending ? 'overspending-value' : 'savings-value'}`}>
+              {isOverspending 
+                ? `+${overspendingPercentage.toFixed(1)}%` 
+                : `-${savingsPercentage.toFixed(1)}%`}
+            </span>
+            <span className="summary-amount">
+              {isOverspending 
+                ? `$${overspendingAmount.toLocaleString()} over` 
+                : `$${(income - totalExpenses).toLocaleString()} saved`}
+            </span>
           </div>
         </div>
       </div>

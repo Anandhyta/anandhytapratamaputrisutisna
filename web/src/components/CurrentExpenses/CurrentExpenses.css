@@ -76,6 +76,60 @@
   color: #7a3a3a;
 }
 
+/* Spending Status Card */
+.spending-status-card {
+  background: linear-gradient(135deg, #E8E4F0 0%, #D8D4E8 100%);
+  border: 1px solid #c8c4d8;
+}
+
+.spending-status-card.overspending {
+  background: linear-gradient(135deg, #FFE0E0 0%, #FFCACA 100%);
+  border: 2px solid #E57373;
+  animation: pulse-warning 2s infinite;
+}
+
+.spending-status-card.under-budget {
+  background: linear-gradient(135deg, #D2F5E3 0%, #BEE5D3 100%);
+  border: 1px solid #98DDCA;
+}
+
+.spending-status-card .overspending-value {
+  color: #C62828;
+  font-weight: 800;
+}
+
+.spending-status-card .savings-value {
+  color: #2E7D32;
+  font-weight: 700;
+}
+
+.summary-amount {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.spending-status-card.overspending .summary-amount {
+  color: #B71C1C;
+  font-weight: 500;
+}
+
+.spending-status-card.under-budget .summary-amount {
+  color: #1B5E20;
+}
+
+@keyframes pulse-warning {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 115, 115, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(229, 115, 115, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 115, 115, 0);
+  }
+}
+
 .balance-card {
   background: linear-gradient(135deg, #F0F0F0 0%, #E8E8E8 100%);
   border: 1px solid #d0d0d0;

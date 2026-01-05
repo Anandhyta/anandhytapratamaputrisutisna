@@ -247,6 +247,25 @@ def generate_financial_recommendation(user_id, behavior_row=None, financial_row=
     apply_scaled_allocation(savings_investments, savings_target)
 
     # -------------------------------
+    # CRITICAL: Ensure total recommended expenses ≤ income
+    # -------------------------------
+    total_recommended = sum(recommended_expenses.values())
+    was_scaled_to_income = False
+    if total_recommended > total_income:
+        was_scaled_to_income = True
+        # Scale down all categories proportionally to fit within income
+        scale_factor = total_income / total_recommended
+        for cat in recommended_expenses:
+            recommended_expenses[cat] = recommended_expenses[cat] * scale_factor
+        
+        # Round to 2 decimal places
+        for cat in recommended_expenses:
+            recommended_expenses[cat] = round(recommended_expenses[cat], 2)
+        
+        # Recalculate total after scaling (should now be ≤ income)
+        total_recommended = sum(recommended_expenses.values())
+
+    # -------------------------------
     # Human-readable insight text
     # -------------------------------
     behavior_type = behavior_row.get("behavior_type") if behavior_row is not None else "Unknown"
@@ -259,9 +278,15 @@ def generate_financial_recommendation(user_id, behavior_row=None, financial_row=
         f"- Financial health: '{health_level}' (Score: {financial_score})",
         f"- Total Income: ${total_income:.2f} USD",
         f"- Total Expenses: ${total_expenses:.2f} USD",
+        f"- Recommended Budget: ${total_recommended:.2f} USD (within income limit)",
         "",
-        "Based on your current spending patterns and the 50/30/20 rule, we suggest the following adjustments:"
     ]
+    
+    if was_scaled_to_income:
+        insight_lines.append("⚠️ Note: Your recommended budget has been adjusted to fit within your income.")
+        insight_lines.append("")
+    
+    insight_lines.append("Based on your current spending patterns and the 50/30/20 rule, we suggest the following adjustments:")
 
     for cat in expense_cols:
         current = current_expenses.get(cat, 0)
