@@ -1,0 +1,146 @@
+.insight-cards {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.insight-cards .section-header {
+  margin-bottom: 24px;
+}
+
+.insight-cards .section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.insights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.insight-card {
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.insight-row .label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.insight-row .value {
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.type-badge {
+  background: linear-gradient(135deg, #E49BA6 0%, #FFD3D5 100%);
+  color: #5a2a3a;
+}
+
+.risk-badge {
+  color: #2d3748;
+}
+
+.health-badge {
+  color: #2d3748;
+}
+
+.insight-description {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.insight-description p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Financial Card Specific Styles */
+.financial-card .insight-content {
+  align-items: center;
+}
+
+.health-score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  color: #4a5568;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.financial-metrics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .insights-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,256 @@
+.recommended-budget {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.recommended-budget .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.recommended-budget .section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.summary-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.summary-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.summary-badge span {
+  font-weight: 700;
+}
+
+.summary-badge.current {
+  background: #F0F0F0;
+  color: #4a5568;
+}
+
+.summary-badge.recommended {
+  background: linear-gradient(135deg, #98DDCA 0%, #BEE5D3 100%);
+  color: #1a5a4a;
+}
+
+/* Table Styles */
+.budget-table-container {
+  overflow-x: auto;
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.budget-table th {
+  background: linear-gradient(135deg, #F9DFDF 0%, #FFD3D5 100%);
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.budget-table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+.budget-table th:last-child {
+  border-radius: 0 12px 0 0;
+  text-align: center;
+}
+
+.budget-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #4a5568;
+}
+
+.budget-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.category-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.change-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.change-indicator.increase {
+  background: #BEE4D0;
+  color: #1a5a4a;
+}
+
+.change-indicator.decrease {
+  background: #FDACAC;
+  color: #7a2a2a;
+}
+
+.amount-cell {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+}
+
+.recommended-cell {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.change-cell {
+  text-align: center;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+}
+
+.change-cell.increase {
+  color: #1a7a4a;
+}
+
+.change-cell.decrease {
+  color: #c53030;
+}
+
+.change-cell.no-change {
+  color: #a0aec0;
+}
+
+/* Total Row */
+.total-row {
+  background: linear-gradient(135deg, #F5F5F5 0%, #EFEFEF 100%);
+}
+
+.total-row td {
+  border-bottom: none;
+  padding: 16px;
+}
+
+.total-row td:first-child {
+  border-radius: 0 0 0 12px;
+}
+
+.total-row td:last-child {
+  border-radius: 0 0 12px 0;
+}
+
+/* Mobile Card View */
+.budget-cards-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .budget-table-container {
+    display: none;
+  }
+
+  .budget-cards-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .budget-card-mobile {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .budget-card-mobile.increase {
+    border-left: 4px solid #98DDCA;
+  }
+
+  .budget-card-mobile.decrease {
+    border-left: 4px solid #FDACAC;
+  }
+
+  .card-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #2d3748;
+  }
+
+  .change-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .change-badge.increase {
+    background: #BEE4D0;
+    color: #1a5a4a;
+  }
+
+  .change-badge.decrease {
+    background: #FDACAC;
+    color: #7a2a2a;
+  }
+
+  .card-amounts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .amount-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .amount-label {
+    font-size: 0.75rem;
+    color: #718096;
+  }
+
+  .amount-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4a5568;
+  }
+
+  .amount-value.recommended {
+    color: #2d3748;
+  }
+
+  .arrow {
+    color: #a0aec0;
+    font-size: 1.2rem;
+  }
+
+  .recommended-budget .section-header {
+    flex-direction: column;
+  }
+}

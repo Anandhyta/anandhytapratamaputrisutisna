@@ -1,0 +1,47 @@
+===== DATASET2 EVALUATION SUMMARY =====
+
+>> MODEL 3: Budget Forecasting
+Top 5 features by importance (Random Forest):
+              Feature  Importance
+      Education (USD)    0.346325
+         Travel (USD)    0.297854
+           Rent (USD)    0.247799
+Online Shopping (USD)    0.027781
+      Groceries (USD)    0.019375
+Sample predictions (first 5 rows):
+  ID  Actual  Pred_Linear  Pred_RF
+1493    3464       3464.0  3169.53
+ 116    3967       3967.0  4117.62
+ 136    4443       4443.0  4925.87
+ 353    4724       4724.0  4243.55
+1303    4936       4936.0  5260.45
+Regression Metrics:
+Linear Regression -> R²: 1.0000, RMSE: 0.00, MAE: 0.00
+Random Forest     -> R²: 0.9253, RMSE: 254.23, MAE: 201.70
+Best model based on evaluation: Linear Regression
+
+Visualizations (check saved images):
+- Actual vs Predicted: /Users/anandhytapratamaputrisutisna/FYP2/Data/dataset2_model3_results/Actual_vs_Predicted.png
+- Feature Importance: /Users/anandhytapratamaputrisutisna/FYP2/Data/dataset2_model3_results/Feature_Importance.png
+
+>> MODEL 4: Overspending / Anomaly Detection
+Percentage of anomalies: 44.47%
+Sample anomaly client IDs: [2, 4, 5, 6, 7]
+Recommended model: Isolation Forest (based on anomaly coverage)
+
+>> MODEL 5: Expense Structure Clustering
+Cluster Counts:
+ cluster  count
+       0    347
+       1    572
+       2    284
+       3    497
+Silhouette Score: 0.0996
+Representative cluster centroids (cluster means):
+ cluster  Rent (USD)  Groceries (USD)  Eating Out (USD)  Entertainment (USD)  Subscription Services (USD)  Education (USD)  Online Shopping (USD)  Travel (USD)  Fitness (USD)  Miscellaneous (USD)  total_expense  savings_rate  expense_to_income_ratio  discretionary_vs_fixed_ratio
+       0   -0.786907        -0.162155          0.099072            -0.024611                     0.006820        -0.860526               0.224817      0.695950      -0.069465             0.048823      -0.477245     -0.245022                -0.336054                      1.480856
+       1    0.528204         0.196988         -0.040963             0.040304                    -0.066836         0.624575              -0.054979      0.343517       0.016508             0.143661       0.863629     -0.397319                -0.166549                     -0.409509
+       2    0.222997         0.092520          0.097658             0.152139                     0.037359         0.314761               0.152917      0.080502       0.132250            -0.055806       0.424642      1.458809                 1.667023                     -0.251788
+       3   -0.185930        -0.166369         -0.077831            -0.116139                     0.050812        -0.297880              -0.181070     -0.927261      -0.046071            -0.167539      -0.903400     -0.205257                -0.526274                     -0.418733
+Recommended n_clusters based on silhouette score: 4
+

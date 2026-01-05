@@ -1,0 +1,20 @@
+===== DATASET1 EVALUATION SUMMARY =====
+
+>> MODEL 1: Expense Structure Clustering (KMeans)
+Cluster Counts:
+cluster
+0    57798
+1    55418
+2    26101
+Silhouette Score: 0.2070
+Davies-Bouldin Index: 1.5325
+Interpretability: 3 clusters
+
+>> MODEL 2: Overspending / Anomaly Detection (Isolation Forest)
+Total anomalies detected: 18349
+Percentage of anomalies: 13.17%
+Sample anomaly client IDs: [1, 3, 3, 3, 3]
+
+Sample anomalous transactions saved to: /Users/anandhytapratamaputrisutisna/FYP2/Data/dataset1_evaluation/Sample_Anomalous_Transactions.csv
+Static PCA plot saved to: /Users/anandhytapratamaputrisutisna/FYP2/Data/dataset1_evaluation/KMeans_IsolationForest_PCA_Static.png
+Interactive PCA plot saved to: /Users/anandhytapratamaputrisutisna/FYP2/Data/dataset1_evaluation/KMeans_IsolationForest_PCA_Interactive.html

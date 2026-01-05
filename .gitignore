@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+fyp2_env/
+venv/
+ENV/
+env/
+.venv/
+
+# Large data files (too big for GitHub - 100MB limit)
+Data/dataset1_transactions.csv
+Data/dataset1_evaluation/KMeans_IsolationForest_PCA_Interactive.html
+Data/dataset1_model2_results/automatic_contamination/dataset1_isolation_forest.csv
+Data/dataset1_model1_results/k3_interpretability/dataset1_kmeans.csv
+Data/dataset1_model1_results/k2_best/dataset1_kmeans.csv
+Data/dataset1_summary.csv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+web/build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+Data/Dataset 1.csv
+Data/Dataset 2.csv

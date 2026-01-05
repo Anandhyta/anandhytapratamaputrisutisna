@@ -1,0 +1,5 @@
+,total_spending,total_spending,total_spending,transaction_count,transaction_count,transaction_count,avg_transaction_value,avg_transaction_value,avg_transaction_value,spending_variance,spending_variance,spending_variance,weekend_spending_ratio,weekend_spending_ratio,weekend_spending_ratio
+,mean,median,std,mean,median,std,mean,median,std,mean,median,std,mean,median,std
+cluster_label,,,,,,,,,,,,,,,
+0,2750.85,2641.2,1067.66,76.53,72.0,31.69,37.75,37.36,11.07,1417.98,1347.25,644.87,0.29,0.28,0.09
+1,6393.48,5897.31,2802.44,116.69,108.0,54.31,58.06,56.31,14.83,2184.3,2076.98,959.46,0.29,0.28,0.06
