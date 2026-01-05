@@ -32,9 +32,9 @@ export interface ExpenseCategory {
  * - behavior_details -> description
  */
 export interface BehaviorInsight {
-  type: string;                           // e.g., "Impulsive Spender", "Balanced"
-  riskLevel: 'Low' | 'Medium' | 'High';  // Normalized risk level
-  description: string;                    // Detailed justification
+  type: string;                                          // e.g., "Impulsive Spender", "Balanced", "Consistently Overspending"
+  riskLevel: 'Low' | 'Medium' | 'High' | 'Very High';   // Normalized risk level
+  description: string;                                   // Detailed justification
 }
 
 /**
@@ -48,10 +48,10 @@ export interface BehaviorInsight {
  * - financial_details -> (used in description, can extend)
  */
 export interface FinancialInsight {
-  healthLevel: 'Poor' | 'Fair' | 'Good' | 'Excellent';  // Mapped from financial_health
-  riskLevel: 'Low' | 'Medium' | 'High';                 // Normalized risk level
-  healthScore: number;                                   // 0-100 score
-  description?: string;                                  // Optional: financial_details
+  healthLevel: 'Poor' | 'Fair' | 'Good' | 'Excellent' | 'Critical';  // Mapped from financial_health
+  riskLevel: 'Low' | 'Medium' | 'High' | 'Very High';                // Normalized risk level
+  healthScore: number;                                                // Score (can be negative for critical)
+  description?: string;                                               // Optional: financial_details
 }
 
 // =========================================

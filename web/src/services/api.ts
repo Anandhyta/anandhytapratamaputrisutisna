@@ -225,19 +225,21 @@ export function getCategoryIcon(category: string): string {
 /**
  * Map risk level string to typed value
  */
-export function mapRiskLevel(level: string): 'Low' | 'Medium' | 'High' {
+export function mapRiskLevel(level: string): 'Low' | 'Medium' | 'High' | 'Very High' {
   const normalizedLevel = level.toLowerCase();
   if (normalizedLevel === 'low') return 'Low';
   if (normalizedLevel === 'medium' || normalizedLevel === 'moderate') return 'Medium';
   if (normalizedLevel === 'high') return 'High';
+  if (normalizedLevel === 'very high' || normalizedLevel === 'critical') return 'Very High';
   return 'Medium'; // Default
 }
 
 /**
  * Map health level string to typed value
  */
-export function mapHealthLevel(health: string): 'Poor' | 'Fair' | 'Good' | 'Excellent' {
+export function mapHealthLevel(health: string): 'Poor' | 'Fair' | 'Good' | 'Excellent' | 'Critical' {
   const normalizedHealth = health.toLowerCase();
+  if (normalizedHealth === 'critical') return 'Critical';
   if (normalizedHealth === 'at risk' || normalizedHealth === 'poor') return 'Poor';
   if (normalizedHealth === 'moderate' || normalizedHealth === 'fair') return 'Fair';
   if (normalizedHealth === 'healthy' || normalizedHealth === 'good') return 'Good';

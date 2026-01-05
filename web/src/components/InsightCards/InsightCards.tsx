@@ -12,6 +12,7 @@ const getRiskColor = (risk: string): string => {
     case 'Low': return '#98DDCA';
     case 'Medium': return '#FFD3D5';
     case 'High': return '#F5AFAF';
+    case 'Very High': return '#E53935';
     default: return '#E2E8F0';
   }
 };
@@ -22,6 +23,7 @@ const getHealthColor = (health: string): string => {
     case 'Good': return '#BEE4D0';
     case 'Fair': return '#FFD3D5';
     case 'Poor': return '#F5AFAF';
+    case 'Critical': return '#E53935';
     default: return '#E2E8F0';
   }
 };
@@ -30,7 +32,9 @@ const getScoreGradient = (score: number): string => {
   if (score >= 80) return 'linear-gradient(135deg, #98DDCA 0%, #B9F3E4 100%)';
   if (score >= 60) return 'linear-gradient(135deg, #BEE4D0 0%, #D2F5E3 100%)';
   if (score >= 40) return 'linear-gradient(135deg, #FFD3D5 0%, #FFCDC9 100%)';
-  return 'linear-gradient(135deg, #F5AFAF 0%, #FDACAC 100%)';
+  if (score >= 0) return 'linear-gradient(135deg, #F5AFAF 0%, #FDACAC 100%)';
+  // Negative scores (Critical)
+  return 'linear-gradient(135deg, #E53935 0%, #C62828 100%)';
 };
 
 const InsightCards: React.FC<InsightCardsProps> = ({ behaviorInsight, financialInsight }) => {

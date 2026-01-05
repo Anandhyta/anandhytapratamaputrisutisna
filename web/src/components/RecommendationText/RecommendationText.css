@@ -85,6 +85,24 @@
   border-color: #F5AFAF;
 }
 
+.insight-card.status-critical {
+  background: linear-gradient(135deg, #FFCDD2 0%, #EF9A9A 100%);
+  border-color: #E53935;
+  animation: pulse-critical 2s infinite;
+}
+
+@keyframes pulse-critical {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(229, 57, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+  }
+}
+
 .insight-card.income-card {
   background: linear-gradient(135deg, #B9F3E4 0%, #C0EEE4 100%);
   border-color: #98DDCA;
@@ -152,6 +170,12 @@
 .insight-card-badge.status-danger {
   background: #f8d7da;
   color: #721c24;
+}
+
+.insight-card-badge.status-critical {
+  background: #E53935;
+  color: white;
+  font-weight: 700;
 }
 
 .insight-card-badge.neutral {

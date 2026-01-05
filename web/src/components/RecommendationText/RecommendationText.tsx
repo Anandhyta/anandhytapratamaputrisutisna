@@ -115,6 +115,7 @@ const RecommendationText: React.FC<RecommendationTextProps> = ({ text }) => {
       case 'low': return 'status-good';
       case 'medium': return 'status-warning';
       case 'high': return 'status-danger';
+      case 'very high': return 'status-critical';
       default: return 'status-neutral';
     }
   };
@@ -124,6 +125,7 @@ const RecommendationText: React.FC<RecommendationTextProps> = ({ text }) => {
       case 'healthy': return 'status-good';
       case 'moderate': return 'status-warning';
       case 'at risk': return 'status-danger';
+      case 'critical': return 'status-critical';
       default: return 'status-neutral';
     }
   };
